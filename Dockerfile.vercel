@@ -1,0 +1,38 @@
+FROM node:22-bookworm-slim AS birthday-site-build
+
+WORKDIR /workspace/birthday-site
+COPY birthday-site/package.json birthday-site/package-lock.json ./
+RUN npm ci
+COPY birthday-site/ ./
+RUN npm run build:laravel
+
+FROM php:8.5-cli-bookworm
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libcurl4-openssl-dev \
+        libonig-dev \
+        libsqlite3-dev \
+        libxml2-dev \
+    && docker-php-ext-install curl dom mbstring pdo_sqlite xml \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www/html
+COPY . .
+COPY --from=birthday-site-build /workspace/public/birthday-site ./public/birthday-site
+
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader \
+    && composer check-platform-reqs --no-dev \
+    && mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs \
+    && chmod -R 775 storage bootstrap/cache
+
+ENV APP_ENV=production \
+    APP_DEBUG=false \
+    LOG_CHANNEL=stderr \
+    CACHE_STORE=array \
+    SESSION_DRIVER=array \
+    QUEUE_CONNECTION=sync
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=80"]

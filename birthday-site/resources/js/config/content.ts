@@ -114,7 +114,7 @@ export const siteConfig: SiteConfig = {
                     title: 'Sweet Beginnings',
                     date: 'Early Years',
                     caption: 'Every beautiful story starts somewhere. Your childhood memories are a reminder of the love that helped shape the wonderful person you are today. 🥹',
-                    imageUrl: './images/angela-baby-gift.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-baby-gift.webp`,
                     category: 'First Chapters',
                 },
                 {
@@ -122,7 +122,7 @@ export const siteConfig: SiteConfig = {
                     title: 'Pure Joy',
                     date: 'Childhood Days',
                     caption: "There's something so precious about seeing you happy. I wish I could have been there for every little moment that made you smile, but I'm grateful to be part of your story now. 💗",
-                    imageUrl: './images/angela-baby-smile.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-baby-smile.webp`,
                     category: 'Precious Smiles',
                 },
                 {
@@ -130,7 +130,7 @@ export const siteConfig: SiteConfig = {
                     title: 'The Graduate',
                     date: 'Bicol University',
                     caption: "You worked hard to get where you are, and you deserve every bit of this achievement. No matter how challenging the journey gets, I'll always be proud of you and your determination. 🎓",
-                    imageUrl: './images/angela-grad-portrait.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-grad-portrait.webp`,
                     category: 'Achievement',
                 },
                 {
@@ -138,7 +138,7 @@ export const siteConfig: SiteConfig = {
                     title: 'A Proud Chapter',
                     date: 'Graduation Ceremony',
                     caption: "Even with your family far away in New Zealand, you're continuing to build your own journey here in the Philippines. I hope I can make you feel supported, loved, and never alone as you chase your dreams. You deserve to be celebrated, today and always. 💜",
-                    imageUrl: './images/angela-grad-ceremony.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-grad-ceremony.webp`,
                     category: 'Milestones',
                 },
                 {
@@ -146,7 +146,7 @@ export const siteConfig: SiteConfig = {
                     title: 'Blooms of Success',
                     date: 'Special Celebration',
                     caption: "Seeing you reach your dreams makes me so proud of you. I hope you never forget how capable and amazing you are. I’ll always be here, cheering for you. 💜",
-                    imageUrl: './images/angela-grad-flowers.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-grad-flowers.webp`,
                     category: 'Celebration',
                 },
                 {
@@ -154,7 +154,7 @@ export const siteConfig: SiteConfig = {
                     title: 'Warmest Smiles',
                     date: 'Cherished Moments',
                     caption: "My favorite moments are the simple ones with you—your laughter, your smile, and even our little moments with our furry companion. You make ordinary days feel special. ❤️",
-                    imageUrl: './images/angela-couple-dog.jpg',
+                    imageUrl: `${import.meta.env.BASE_URL}images/angela-couple-dog.webp`,
                     category: 'Precious Moments',
                 },
             ],
@@ -213,4 +213,3 @@ I love you so much, my love! 😘💗`,
         enableFootprints: true,
     },
 };
-
