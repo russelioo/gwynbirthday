@@ -10,11 +10,10 @@ FROM php:8.5-cli-bookworm
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        libcurl4-openssl-dev \
         libonig-dev \
         libsqlite3-dev \
         libxml2-dev \
-    && docker-php-ext-install curl dom mbstring pdo_sqlite xml \
+    && docker-php-ext-install lexbor dom mbstring pdo_sqlite xml \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
