@@ -4,6 +4,7 @@
     "type": "module",
     "scripts": {
         "build:static": "vite build",
+        "build:laravel": "vite build --mode laravel",
         "types:check": "tsc --noEmit"
     },
     "dependencies": {

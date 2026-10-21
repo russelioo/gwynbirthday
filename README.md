@@ -23,22 +23,31 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Birthday Website and GitHub Pages
 
-The standalone React birthday website is in `birthday-site/`. It is built as a
-static site and deployed by `.github/workflows/static.yml`; the Laravel
-application remains separate and unchanged.
+The React birthday website is in `birthday-site/`. Laravel serves its built
+version at `/`, and `.github/workflows/static.yml` continues to deploy the
+standalone static version to GitHub Pages.
 
-To build the site locally:
+To run it through Laravel locally:
 
 ```bash
 cd birthday-site
 npm ci
 npm run types:check
-npm run build:static
+npm run build:laravel
+cd ..
+php artisan serve
 ```
 
-The generated static files are written to the repository's `dist/` directory.
-GitHub Pages should use **GitHub Actions** as its deployment source. The site
-is configured for `https://russelioo.github.io/gwynbirthday/`.
+The Laravel build is written to `public/birthday-site/` and is ignored by Git.
+For GitHub Pages, run `npm run build:static` from `birthday-site/`; those files
+are written to the repository's `dist/` directory. GitHub Pages should use
+**GitHub Actions** as its deployment source. The site is configured for
+`https://russelioo.github.io/gwynbirthday/`.
+
+For Vercel, set the project Root Directory to `birthday-site`, use the Vite
+framework preset, build command `npm run build:static`, and output directory
+`dist`. Vercel sets `VERCEL=1` during builds, which selects root-relative asset
+URLs and places the output in the configured directory.
 
 ## Learning Laravel
 

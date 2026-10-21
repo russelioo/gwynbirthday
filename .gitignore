@@ -15,8 +15,10 @@
 /auth.json
 /node_modules
 /birthday-site/node_modules
+/birthday-site/dist
 /dist
 /public/build
+/public/birthday-site
 /public/fonts-manifest.dev.json
 /public/hot
 /public/storage
