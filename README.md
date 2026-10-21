@@ -21,6 +21,25 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Birthday Website and GitHub Pages
+
+The standalone React birthday website is in `birthday-site/`. It is built as a
+static site and deployed by `.github/workflows/static.yml`; the Laravel
+application remains separate and unchanged.
+
+To build the site locally:
+
+```bash
+cd birthday-site
+npm ci
+npm run types:check
+npm run build:static
+```
+
+The generated static files are written to the repository's `dist/` directory.
+GitHub Pages should use **GitHub Actions** as its deployment source. The site
+is configured for `https://russelioo.github.io/gwynbirthday/`.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
